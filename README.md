@@ -5,13 +5,13 @@
   <p align="center">
     A weather dependant light up aviation map.
     <br />
-    <a href="https://github.com/kcaj106/Aviation-weather-board"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/jacklipton/Aviation-weather-board"><strong>Explore the docs »</strong></a>
     <br />
   </p>
 </div>
 
 
-https://github.com/kcaj106/Aviation-weather-board/assets/83594679/f8df7533-afa8-4296-8fbb-ba53487697fc
+https://github.com/jacklipton/Aviation-weather-board/assets/83594679/f8df7533-afa8-4296-8fbb-ba53487697fc
 
 <!-- TABLE OF CONTENTS -->
 <details>
