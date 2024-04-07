@@ -7,7 +7,9 @@ import connect_to_wifi
 import AviationWeatherServer
 
 wifiStat = connect_to_wifi.conNet()
-AviationWeatherServer.main(wifiStat)
+
 
 
 gc.collect()
+AviationWeatherServer.main(wifiStat)
+

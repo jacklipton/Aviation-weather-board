@@ -1,36 +1,14 @@
 
 
 
-
-
-
-
-
-
 import urequests as requests
-import machine, neopixel
+
 import json
 import time
 import sys
+from light_control import*
 
 
-np = neopixel.NeoPixel(machine.Pin(14),50)
-
-def turnOff():
-  for i in range(50):
-    np[i] = (0,0,0)
-    np.write()
-
-def turnOn(clr):
-
-  ltOrder = [1,4,7,8,14,17,19,21,26,31,32,35,36,38,41,44,48]
-  for i in range(len(ltOrder)):
-    if clr == "green":
-      np[ltOrder[i]] = (25,0,0)
-      np.write()
-    elif clr == "red":
-      np[ltOrder[i]] = (0,25,0)
-      np.write()
 
 
 
@@ -40,17 +18,6 @@ def removeLet(CC):
         if letter in CC:
             CC = CC.replace(letter,'')
     return(CC)
-
-def colours(fr,ltNum):
-  if fr == 'VFR':
-    np[ltNum] = (20,0,0)
-  elif fr == 'MVFR':
-    np[ltNum] = (0,0,35)
-  elif fr == 'IFR':
-    np[ltNum] = (0,25,0)
-  elif fr == 'LIFR':
-    np[ltNum] = (0,25,25)
-  np.write()
 
 
 
@@ -65,7 +32,7 @@ def AvWeather():
   i = 0
 
   print("test")
-  hdr = {"X-API-Key": your-key}
+  hdr = {"X-API-Key": "e99ef131b8f04bc9853ddaed7f"}
   r = requests.request("GET","https://api.checkwx.com/metar/"+ airports, headers=hdr)
 
   cyData = json.loads(r.text)['data']
@@ -119,7 +86,7 @@ def AvWeather():
 
 
 def main(conStat):
-
+  light_setup()
   if conStat == False:
     print("No connection")
     turnOn("red")
@@ -128,6 +95,7 @@ def main(conStat):
     sys.exit()
   else:
     print("Connection successful")
+    
     turnOn("green")
     time.sleep(5)
     turnOff()
