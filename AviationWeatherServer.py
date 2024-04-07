@@ -6,13 +6,13 @@
 
 
 
-import network
+
 import urequests as requests
 import machine, neopixel
 import json
 import time
 import sys
-import esp
+
 
 np = neopixel.NeoPixel(machine.Pin(14),50)
 
@@ -32,36 +32,6 @@ def turnOn(clr):
       np[ltOrder[i]] = (0,25,0)
       np.write()
 
-
-def conNet():
-  esp.osdebug(None)
-
-  ssid = '23Bev'
-  password = "bunchajews"
-
-  station = network.WLAN(network.STA_IF)
-
-  station.active(True)
-  station.connect(ssid, password)
-
-
-  start_time = time.time()
-
-  while station.isconnected() == False:
-    if (time.time() - start_time) >30:
-      turnOn("red")
-      time.sleep(1)
-      turnOff()
-      sys.exit()
-
-
-    pass
-
-  print('Connection successful')
-  print(station.ifconfig())
-  turnOn("green")
-  time.sleep(1)
-  turnOff()
 
 
 def removeLet(CC):
@@ -148,15 +118,25 @@ def AvWeather():
     i=i+1
 
 
-def main():
+def main(conStat):
 
-  conNet()
+  if conStat == False:
+    print("No connection")
+    turnOn("red")
+    time.sleep(5)
+    turnOff()
+    sys.exit()
+  else:
+    print("Connection successful")
+    turnOn("green")
+    time.sleep(5)
+    turnOff()
+
   while True:
     AvWeather()
     time.sleep(900)
 
 
-main()
 
 
 
