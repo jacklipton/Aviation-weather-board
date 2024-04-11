@@ -64,7 +64,7 @@ Use a micropython IDE (such as UpyCraft) to upload the script. Ensure to call it
 
 ## Configuration
 
-Ensure in the script you add the name of your own wifi SSID and password at line 39 and 40. You can choose your own airports at line 89 by modifying the ICAO airport codes. Lastly, ensure you have added your API auth key.
+Ensure in the script you add the name of your own wifi SSID and password at line 9 and 10 of connect_to_wifi.py. You can choose your own airports at line 28 by modifying the ICAO airport codes. Lastly, ensure you have added your API auth key.
 
 ## Contributing
 
