@@ -6,8 +6,8 @@ import sys
 def conNet():
 
 
-    ssid = '23Bev'
-    password = "bunchajews"
+    ssid = 'SSID'
+    password = "PASSWORD"
 
     station = network.WLAN(network.STA_IF)
 
