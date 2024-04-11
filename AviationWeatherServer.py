@@ -95,7 +95,6 @@ def main(conStat):
     sys.exit()
   else:
     print("Connection successful")
-    
     turnOn("green")
     time.sleep(5)
     turnOff()
