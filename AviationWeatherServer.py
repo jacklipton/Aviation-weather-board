@@ -29,7 +29,7 @@ def AvWeather():
 
   i = 0
 
-  hdr = {"X-API-Key": "e99ef131b8f04bc9853ddaed7f"}
+  hdr = {"X-API-Key": "your_api_key"}
   r = requests.request("GET","https://api.checkwx.com/metar/"+ airports +"/decoded", headers=hdr)
 
   cyData = json.loads(r.text)['data']
