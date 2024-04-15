@@ -5,11 +5,14 @@ import gc
 
 import connect_to_wifi
 import AviationWeatherServer
+import server
 
 wifiStat = connect_to_wifi.conNet()
 
 
 
 gc.collect()
-AviationWeatherServer.main(wifiStat)
+AviationWeatherServer.startup(wifiStat)
+server.run_server()
+
 

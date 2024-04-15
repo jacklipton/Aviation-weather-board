@@ -11,16 +11,6 @@ from light_control import*
 
 
 
-
-def removeLet(CC):
-    alphabet ="QWERTYUIOPASDFGHJKLZXCVBNM"
-    for letter in alphabet:
-        if letter in CC:
-            CC = CC.replace(letter,'')
-    return(CC)
-
-
-
 def AvWeather():
 
   airports = "KOGS,KMSS,CYOW,CYND,CYGK,CYTR,CYPQ,CYOO,CYQA,CYTZ,CYYZ,CYSN,KIAG,KBUF,CYHM,CYKF,CYXU"
@@ -29,7 +19,7 @@ def AvWeather():
 
   i = 0
 
-  hdr = {"X-API-Key": "your_api_key"}
+  hdr = {"X-API-Key": "e99ef131b8f04bc9853ddaed7f"}
   r = requests.request("GET","https://api.checkwx.com/metar/"+ airports +"/decoded", headers=hdr)
 
   cyData = json.loads(r.text)['data']
@@ -38,39 +28,36 @@ def AvWeather():
   for cy in cyData:
 
     if cy['flight_category'] == "VFR":
-      print("VFR")
+      # print("VFR")
       colours("VFR",ltOrder[i])
     elif cy['flight_category'] == "MVFR":
-      print("MVFR")
+      # print("MVFR")
       colours("MVFR",ltOrder[i])
     elif cy['flight_category'] == "IFR":
-      print("IFR")
+      # print("IFR")
       colours("IFR",ltOrder[i])
     elif cy['flight_category'] == "LIFR":
-      print("LIFR")
+      # print("LIFR")
       colours("LIFR",ltOrder[i])
 
-    print(cy)
+    # print(cy)
     i=i+1
 
 
-def main(conStat):
+def startup(conStat):
   light_setup()
   if conStat == False:
     print("No connection")
     turnOn("red")
-    time.sleep(5)
+    time.sleep(3)
     turnOff()
     sys.exit()
   else:
     print("Connection successful")
     turnOn("green")
-    time.sleep(5)
+    time.sleep(3)
     turnOff()
 
-  while True:
-    AvWeather()
-    time.sleep(900)
 
 
 
