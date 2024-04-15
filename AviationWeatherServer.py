@@ -13,7 +13,10 @@ from light_control import*
 
 def AvWeather():
 
-  airports = "KOGS,KMSS,CYOW,CYND,CYGK,CYTR,CYPQ,CYOO,CYQA,CYTZ,CYYZ,CYSN,KIAG,KBUF,CYHM,CYKF,CYXU"
+
+  airports = "CYGK,CYHM,CYKF,CYND,CYOO,CYOW,CYPQ,CYQA,CYSN,CYTR,CYTZ,CYXU,CYYZ,KBUF,KIAG,KMSS,KOGS"
+
+
 
   ltOrder = [14,41,44,8,21,7,19,26,35,17,31,48,32,38,36,4,1]
 
@@ -28,7 +31,6 @@ def AvWeather():
   for cy in cyData:
 
     if cy['flight_category'] == "VFR":
-      # print("VFR")
       colours("VFR",ltOrder[i])
     elif cy['flight_category'] == "MVFR":
       # print("MVFR")
