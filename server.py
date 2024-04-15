@@ -51,13 +51,45 @@ def run_server():
         response = """HTTP/1.1 200 OK
     Content-Type: text/html
 
-    <!DOCTYPE HTML>
-    <html>
-    <body>
-    <button onclick="location.href='/?buttonA'">Button A</button>
-    <button onclick="location.href='/?buttonB'">Button B</button>
-    </body>
-    </html>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Control Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 20px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition-duration: 0.4s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Board Control Panel</h1>
+    <button onclick="location.href='/?buttonA'">Activate Weather Service</button>
+    <button onclick="location.href='/?buttonB'">Turn Off Lights</button>
+</body>
+</html>
+
     """
         conn.send(response)
         conn.close()
